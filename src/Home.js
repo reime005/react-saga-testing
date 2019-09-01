@@ -35,6 +35,7 @@ export const Home = ({
         <button onClick={() => takeLeading()}>Take Leading</button>
         <button onClick={() => takeLatest()}>Take Latest</button>
       </div>
+      <p>Click a button fast, then you'll see.</p>
     </div>
   );
 };
