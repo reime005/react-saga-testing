@@ -39,6 +39,8 @@
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "fetch-mock": "^7.3.9",
+    "node-fetch": "^2.6.0",
     "redux-saga-tester": "^1.0.538",
     "sinon": "^7.4.1"
   }

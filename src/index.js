@@ -5,6 +5,11 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import configureStore from "./store/configureStore";
 
+// enable mock api on DEV
+if (process.env.NODE_ENV === 'development') {
+  require('./mock-api')
+}
+
 const store = configureStore();
 
 ReactDOM.render(<App store={store} />, document.getElementById("root"));

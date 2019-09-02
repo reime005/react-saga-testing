@@ -9,7 +9,7 @@ import {
   takeLatest,
   takeLeading
 } from "redux-saga/effects";
-import { testSetReduxAction } from "./rootReducer";
+import { testIncremenReduxAction } from "./rootReducer";
 import { channel } from "redux-saga";
 
 export const SEND_MEDIA_SAGA_ACTION = "SEND_MEDIA_SAGA_ACTION";
@@ -40,13 +40,15 @@ export const takeMaybeSagaAction = () => ({
   type: TAKE_MAYBE_SAGA_ACTION
 });
 
-export const testSagaAction = () => ({
+export const queuedSagaAction = () => ({
   type: SEND_MEDIA_SAGA_ACTION
 });
 
 function* sendMediaSaga() {
-  yield delay(1000);
-  yield put(testSetReduxAction());
+  const result = yield call(fetch, 'https://example-api.com/test');
+  const { increment } = yield result.json();
+
+  yield put(testIncremenReduxAction({ increment }))
 }
 
 function* takeSaga() {

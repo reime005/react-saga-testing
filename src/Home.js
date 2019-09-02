@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {
-  testSagaAction,
+  queuedSagaAction,
   takeEverySagaAction,
   takeLatestSagaAction,
   takeMaybeSagaAction,
@@ -51,6 +51,6 @@ export const HomeContainer = connect(
     takeLatest: () => dispatch(takeLatestSagaAction()),
     takeMaybe: () => dispatch(takeMaybeSagaAction()),
     takeLeading: () => dispatch(takeLeadingSagaAction()),
-    makeCall: () => dispatch(testSagaAction())
+    makeCall: () => dispatch(queuedSagaAction())
   })
 )(Home);
