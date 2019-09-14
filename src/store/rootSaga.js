@@ -4,7 +4,6 @@ import {
   call,
   fork,
   all,
-  delay,
   takeEvery,
   takeLatest,
   takeLeading
@@ -66,17 +65,9 @@ function* takeMaybeSaga() {
 }
 
 function* handleRequest(chan) {
-  const list = [];
-
   while (true) {
     const action = yield take(chan);
-
-    while (list.some(task => task.isRunning())) {
-      yield delay(50);
-    }
-
-    const task = yield fork(sendMediaSaga, action);
-    list.push(task);
+    yield call(sendMediaSaga, action);
   }
 }
 

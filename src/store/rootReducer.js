@@ -16,7 +16,7 @@ export const resetAction = () => ({
   type: RESET_ACTION
 });
 
-const exampleReducer = (state = initialState, action) => {
+const exampleReducer = (state = { counter: 0 }, action) => {
   switch (action.type) {
     case TEST_INCREMENT_ACTION: {
       return {
